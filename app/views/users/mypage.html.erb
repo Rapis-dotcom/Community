@@ -1,0 +1,38 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      
+        <h2>User info</h2>
+          <table class="table">
+            <tbody>
+              <tr><%= image_tag @user.get_profile_image(100,100) %></tr>
+              <tr>
+                <th>氏名</th>
+                <th><%= @user.name %></th>
+              </tr>
+              
+            </tbody>
+          </table>
+    
+        <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
+          <i class="fas fa-user-cog"></i>
+        <% end %>       
+      </div>
+     </div> 
+    <div class="row">
+        <div class="col-sm-12 col-md-8 >
+          
+          <% @posts.each do |post| %>
+            <div class = "col-md-6">
+              --- <br>
+              <%= link_to post.title, post_path(post) %><br>
+              <%= post.body %>
+              ---- <br>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

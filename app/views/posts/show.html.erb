@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <%= link_to post_path(@post.id) do %>
+        <%= image_tag @post.get_image(100,100) %>
+      <% end %>
+      <p>投稿ユーザー画像<%= image_tag @post.user.get_profile_image(100,100) %></p>
+      <p>タイトル：<%= @post.title %></p>
+      <p>本文：<%= @post.body %></p>
+      <p>ユーザーネーム：<%= @post.user.name %></p>
+      <% if @post.user == current_user %>
+        <%= link_to "編集",edit_post_path(@post), class:"btn btn-sm btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
